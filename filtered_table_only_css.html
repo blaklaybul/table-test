@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+		<!-- Optionales Theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+		<!-- Das neueste kompilierte und minimierte JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		<style>
+			.filteredtable tbody tr,
+			.tablefilter{
+				display:none;
+			}
+			#class1.tablefilter:checked ~ table tbody tr.class1,
+			#class2.tablefilter:checked ~ table tbody tr.class2,
+			#class3.tablefilter:checked ~ table tbody tr.class3 {
+				display:table-row;
+			}
+			.tablefilter + label{
+				cursor: pointer;
+				background-color: #666;
+				color: #fff;
+				padding: 3px;
+				
+			}
+			.tablefilter:checked + label{
+				background-color: #111;
+			}
+					
+			#all.tablefilter:checked ~ table tbody tr{
+				display:table-row;
+			}
+		</style>
+	</head>
+	<body>		
+		<div class="container">
+			<div class="row">
+				<h1>Filtered Table</h1>
+				
+			<!-- Filter -->
+			<input type="checkbox" class="tablefilter" name="all" id="all" checked />
+			<label for="all">All</label>	
+			<input type="checkbox" class="tablefilter" name="class1" id="class1" checked />
+			<label for="class1">Class1</label>				
+			<input type="checkbox" class="tablefilter" name="class2" id="class2" checked />
+			<label for="class2">Class2</label>		
+			<input type="checkbox" class="tablefilter" name="class3" id="class3" checked />
+			<label for="class3">Class3</label>
+			
+			<!-- Table -->
+			<table class="table table-bordered table-striped filteredtable">
+				<thead>
+					<tr class="class1">
+						<td>Column 1</td>
+						<td>Column 2</td>
+						<td>Filtered Column</td>
+						<td>Column 3</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="class1">
+						<td>Test</td>
+						<td>Test</td>
+						<td>Class1</td>
+						<td>Test</td>
+					</tr>
+					<tr class="class1 class2">
+						<td>Test</td>
+						<td>Test</td>
+						<td>Class1 & Class2</td>
+						<td>Test</td>
+					</tr>
+					<tr class="class2">
+						<td>Test</td>
+						<td>Test</td>
+						<td>Class2</td>
+						<td>Test</td>
+					</tr>
+					<tr class="class1 class3">
+						<td>Test</td>
+						<td>Test</td>
+						<td>Class1 & Class3</td>
+						<td>Test</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+		</div>
+	</body>
+</html>
